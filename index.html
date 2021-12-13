@@ -69,7 +69,7 @@
         console.log("In showAvat");
         const avatar = document.querySelector("#avatar");
         let z = -0.3;
-        avatar.setAttribute("position", "0 0 0"); //give the z value here if animation feel is needed eg-(0 -0.25 z)
+        avatar.setAttribute("position", "0 -2 0"); //give the z value here if animation feel is needed eg-(0 -0.25 z)
        // avatar.setAttribute("rotation", "90 0 0"); // change X to 0
         // const id = setInterval(() => { // this executes when interval of 10ms
         //   z += 0.008;
@@ -92,8 +92,8 @@
               });
             },0);
             
-            // showAvatar(() => {
-            // });
+            showAvatar(() => {
+            });
           });
           this.el.addEventListener('targetLost', event => {
             console.log("target not found");
@@ -201,7 +201,7 @@
           <!-- <img id="card" src="./Bd.png" /> -->
           <video id="paintandquest-video-mp4" playsinline muted autoplay="true" loop="true" src="./coffeeday.mp4"></video>
           <video id="paintandquest-video-webm" playsinline muted autoplay="true" loop="true" src="./coffeeday.webm" ></video>
-          <!-- <a-asset-item id="avatarModel" src="./scene.gltf"></a-asset-item> -->
+          <a-asset-item id="avatarModel" src="./desert.gltf"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable">
@@ -214,7 +214,7 @@
             <!-- </a-entity> -->
           <!-- </a-entity> -->
 <!-- right left top bottom -->
-           <!-- <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.05 0.05 0.05" src="#avatarModel" animation-mixer="loop:once; clampWhenFinished:true; duration: 15"></a-gltf-model> -->
+           <a-gltf-model id="avatar" rotation="0 0 0" position="0 0 0" scale="0.0025 0.0025 0.0025" src="#avatarModel" animation-mixer="loop:once; clampWhenFinished:true; duration: 15"></a-gltf-model>
           <!-- <a-entity light="type: directional; color: #FFF; intensity: 1.0" position="5 -0.25 5" rotation = "0 0 90"></a-entity>
           <a-entity light="type: directional; color: #FFF; intensity: 3.0" position="-5 -0.25 5" rotation = "0 0 90"></a-entity>
           <a-entity light="type: directional; color: #FFF; intensity: 3.0" position="-0.25 5 5" rotation = "0 0 90"></a-entity>  
