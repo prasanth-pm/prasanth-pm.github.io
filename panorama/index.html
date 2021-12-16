@@ -23,7 +23,7 @@
 			var savedLongitude;
 			var savedLatitude;
 			var SphereArray = [];
-			
+			var mesh,mesh1,mesh2,mesh3;
 			
 			// setting up the renderer
 			renderer = new THREE.WebGLRenderer();
@@ -50,6 +50,8 @@
 			var sphereMesh = new THREE.Mesh(sphere, sphereMaterial);
 			sphereMesh.name = "sphere";
 			scene.add(sphereMesh);
+
+            spawnHotspots();
 
 			// listeners
 			document.addEventListener("mousedown", onDocumentMouseDown, false);
@@ -81,6 +83,28 @@
 				renderer.render(scene, camera);
 				
 			}
+
+            function spawnHotspots(){
+
+                    const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
+					const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
+					mesh = new THREE.Mesh( geometry, material );
+					mesh.position.x = 75.14477990461387;
+					mesh.position.y = 16.11773251146815;
+					mesh.position.z = 63.901575264108274;
+                    mesh.name = "mesh";
+					scene.add(mesh);
+					SphereArray.push(mesh);
+
+                    mesh1 = new THREE.Mesh( geometry, material );
+					mesh1.position.x = -17.061919464313796;
+					mesh1.position.y = 12.669195863323544;
+					mesh1.position.z = 97.60455051600758;
+                    mesh1.name = "mesh1";
+					scene.add(mesh1);
+					SphereArray.push(mesh1);
+
+            }
 			
 			// when the mouse is pressed, we switch to manual control and save current coordinates
 			function onDocumentMouseDown(event){
@@ -129,7 +153,7 @@
 				var intersects = rayCaster.intersectObjects(scene.children, true);
 				console.log(intersects[0].point, intersects);
 				if (intersects.length > 0){
-					console.log(intersects[0].point);
+					console.log(intersects[0].point, " point");
 					const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
 					const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
 					const mesh = new THREE.Mesh( geometry, material );
@@ -152,12 +176,113 @@
 					rayCaster.setFromCamera(mousePosition, camera);
 					var intersects = rayCaster.intersectObjects(SphereArray, true);
 					if (intersects.length > 0){
-						console.log("sphere intersected");
-						sphereMaterial.map = THREE.ImageUtils.loadTexture("./livingroom.jpg")
-                        SphereArray.forEach(element => {
-                            console.log(element);
-                            scene.remove(element);
-                        });
+						console.log("sphere intersected", intersects[0].object.name);
+                        if(intersects[0].object.name === "mesh"){
+                            sphereMaterial.map = THREE.ImageUtils.loadTexture("./livingroom.jpg") ;
+
+                            SphereArray.forEach(element => {
+                                console.log(element);
+                                scene.remove(element);
+                            });
+                            SphereArray = [];
+
+                            const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
+                            const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
+                            mesh3 = new THREE.Mesh( geometry, material );
+                            mesh3.position.x = 99.29470992791694;
+                            mesh3.position.y = 3.9220341267996766;
+                            mesh3.position.z = -10.01609325033062;
+                            mesh3.name = "mesh3"
+                            scene.add(mesh3);
+                            SphereArray.push(mesh3);  
+                        }
+                        else if(intersects[0].object.name === "mesh1"){
+                            sphereMaterial.map = THREE.ImageUtils.loadTexture("./sofa.jpg");
+
+                            
+                            SphereArray.forEach(element => {
+                                console.log(element);
+                                scene.remove(element);
+                            });
+                            SphereArray = [];
+
+                            const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
+                            const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
+                            mesh2 = new THREE.Mesh( geometry, material );
+                            mesh2.position.x = -96.56117443526357;
+                            mesh2.position.y = -1.5995371679555876;
+                            mesh2.position.z = -25.666599424087657;
+                            mesh2.name = "mesh2"
+                            scene.add(mesh2);
+                            SphereArray.push(mesh2);
+
+                        }
+                        else if(intersects[0].object.name === "mesh3"){
+                            sphereMaterial.map = THREE.ImageUtils.loadTexture("./Bedroom.jpg");
+
+                            SphereArray.forEach(element => {
+                                console.log(element);
+                                scene.remove(element);
+                            });
+                            SphereArray = [];
+
+                            const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
+                            const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
+                            mesh = new THREE.Mesh( geometry, material );
+                            mesh.position.x = 75.14477990461387;
+                            mesh.position.y = 16.11773251146815;
+                            mesh.position.z = 63.901575264108274;
+                            mesh.name = "mesh";
+                            scene.add(mesh);
+                            SphereArray.push(mesh);
+
+                            mesh1 = new THREE.Mesh( geometry, material );
+                            mesh1.position.x = -17.061919464313796;
+                            mesh1.position.y = 12.669195863323544;
+                            mesh1.position.z = 97.60455051600758;
+                            mesh1.name = "mesh1";
+                            scene.add(mesh1);
+                            SphereArray.push(mesh1);
+
+                        }
+                        else if(intersects[0].object.name === "mesh2"){
+                            sphereMaterial.map = THREE.ImageUtils.loadTexture("./Bedroom.jpg");
+
+                            SphereArray.forEach(element => {
+                                console.log(element);
+                                scene.remove(element);
+                            });
+                            SphereArray = [];
+
+                            const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
+                            const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
+                            mesh = new THREE.Mesh( geometry, material );
+                            mesh.position.x = 75.14477990461387;
+                            mesh.position.y = 16.11773251146815;
+                            mesh.position.z = 63.901575264108274;
+                            mesh.name = "mesh";
+                            scene.add(mesh);
+                            SphereArray.push(mesh);
+
+                            mesh1 = new THREE.Mesh( geometry, material );
+                            mesh1.position.x = -17.061919464313796;
+                            mesh1.position.y = 12.669195863323544;
+                            mesh1.position.z = 97.60455051600758;
+                            mesh1.name = "mesh1";
+                            scene.add(mesh1);
+                            SphereArray.push(mesh1);
+                        }
+
+                        // const geometry = new THREE.SphereGeometry( 2.5, 60, 40 );
+                        // const material = new THREE.MeshBasicMaterial({color: 0x4287f5});
+                        // const mesh3 = new THREE.Mesh( geometry, material );
+                        // mesh3.position.x = 99.29470992791694;
+                        // mesh3.position.y = 3.9220341267996766;
+                        // mesh3.position.z = -10.01609325033062;
+                        // scene.add(mesh3);
+                        // SphereArray.push(mesh3);
+
+
 					}
 				}
 					 
