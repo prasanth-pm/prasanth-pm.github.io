@@ -13,18 +13,11 @@
         </model-viewer>
 
         <script>
-            //setTimeout(AutoClick,5000);
-            // function AutoClick(){
-            //     document.getElementById('ar-button').click()
-            // }
-            setTimeout(()=>{
-                let button = document.getElementById("ar-button");
-                if(button !== null)
-                {
-                button.click();
-                }
-            },1000);
-
+            setTimeout(AutoClick,1000);
+            function AutoClick(){
+                console.log("new")
+                document.getElementById('ar-button').click()
+            }
         </script>
 	</body>
 </html>
