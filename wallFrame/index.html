@@ -17,10 +17,14 @@
             // function AutoClick(){
             //     document.getElementById('ar-button').click()
             // }
-            window.onload=function(){
-                console.log("done");
-                document.getElementById('ar-button').click();
-            }
+            setTimeout(()=>{
+                let button = document.getElementById("ar-button");
+                if(button !== null)
+                {
+                button.click();
+                }
+            },1000);
+
         </script>
 	</body>
 </html>
