@@ -19,10 +19,15 @@
             //     document.getElementById('ar-button').click()
             // }
 
-            window.onload = function(){
-                console.log("new12")
-                document.getElementById('ar-button').click();
-            }
+            setTimeout(()=>{
+                console.log("hi")
+                let button = document.getElementById("ar-button");
+                if(button !== null)
+                {
+                button.click();
+                }
+            },1000);
+
         </script>
 	</body>
 </html>
