@@ -13,9 +13,13 @@
         </model-viewer>
 
         <script>
-            setTimeout(AutoClick,5000);
-            function AutoClick(){
-                document.getElementById('ar-button').click()
+            //setTimeout(AutoClick,5000);
+            // function AutoClick(){
+            //     document.getElementById('ar-button').click()
+            // }
+            window.onload=function(){
+                console.log("done");
+                document.getElementById('ar-button').click();
             }
         </script>
 	</body>
